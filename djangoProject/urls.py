@@ -19,7 +19,13 @@ from django.contrib import admin
 from django.conf.urls import include
 from django.urls import re_path
 
+from blog import views
+
 urlpatterns = [
+    re_path('login', views.loginPage, name='login'),
+    re_path('register', views.registerPage, name='register'),
+    re_path('logout', views.doLogout, name='logout'),
+    re_path(r'^me/$',views.me,name='me'),
     re_path(r'^admin/', admin.site.urls),
     re_path(r'^blog/',include('blog.urls'))
 
